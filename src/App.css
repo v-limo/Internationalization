@@ -1,5 +1,9 @@
 .App {
+  display: flex;
   text-align: center;
+  justify-content: center;
+  margin: auto;
+  flex-direction: column;
 }
 
 .App-logo {
@@ -35,4 +39,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #f0f0f0;
 }

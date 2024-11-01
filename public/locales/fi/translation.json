@@ -1,0 +1,4 @@
+{
+    "welcome": "Tervetuloa sovellukseemme!",
+    "current_date": "Tämän päivän päivämäärä on {{date, date}}."
+}

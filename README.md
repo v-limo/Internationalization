@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+## Used packages.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```bash
 
-## Available Scripts
+ # internalization framework for js
+npm install i18next
 
-In the project directory, you can run:
+# package to allow auomatic language detection, better than using location, check the reason below.
+npm install i18next-browser-languagedetector
 
-### `npm start`
+# Provides react binding to i18next
+npm install react-i18next
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# This allow for loading  (several) translations (JSON files) via HTTP
+npm install i18next-http-backend
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Why use i18next-browser-languagedetector over geolocations
 
-### `npm test`
+- browser language detector is more accurate to user preference, geolocation may not accurately represent this
+- browser language detector is easy to implement and does not require API keys and managing location base data
+- browser language detector is more secure, the user is not needed to give explicit location consent and less instructive.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Take aways
 
-### `npm run build`
+- If the browser detects a language that is not configure, the `fallbackLng` is used.
+- The current language is persisited to the local storage with the key `i18nextLng` - remove the item when testing browser language detector.
+- User [this](https://chromewebstore.google.com/detail/locale-switcher/kngfjpghaokedippaapkfihdlmmlafcc) (or similar) extensions to change change browser language.
+- A language can have several variants, such as `ar` (Arabic) and `ar-EG` (Arabic as spoken in Egypt), allowing for region-specific translations, if `ar-EG` resources are unavailable, i18next falls back to the more general language code `ar`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## More resources
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [react-i18next step by step docs](https://react.i18next.com/latest/using-with-hooks)
