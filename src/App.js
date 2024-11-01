@@ -14,7 +14,7 @@ function App() {
   ];
 
   const handleLanguageChange = async (code) => {
-    await i18n.changeLanguage(code); // the code (ie en) is the important thing here, works without await.
+    await i18n.changeLanguage(code); // the code (ie en) is the important thing here, works without await but the line is async.
   };
 
   const currentLanguageCode = i18n.language;
